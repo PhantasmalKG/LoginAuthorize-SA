@@ -1,42 +1,53 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+ font-size: 62.5%;
+
+ /* Colors */
+ --fc-white: #fff;
+ --fc-black: #0a0a1a;
+ --bgc-maroon: #700404;
+ --bgc-violet: #280058;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.login-board{
+  background-color: var(--fc-black);
+  height: 60vh;
+  width: 40vw;
+  position: relative;
+  border-radius: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+
+}
+
+.login-board::after, .login-board::before{
+  content:'';
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(from var(--angle), transparent 60%, var(--bgc-violet));
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  animation: 3s circuit linear infinite;
+}
+
+.login-board::before{
+  filter: blur(4rem);
+  opacity: 0.8;
+}
+
+@keyframes circuit{
+  0%{
+    --angle: 0deg;
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+    --angle: 360deg;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

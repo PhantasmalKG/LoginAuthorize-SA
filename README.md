@@ -1,2 +1,2 @@
 # LoginAuthorize-SA
- Login Authrization from login page.
+ Login Authorization from login page.
